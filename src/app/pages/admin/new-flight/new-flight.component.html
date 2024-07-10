@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h4>New Flight Form</h4>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-6">
+            <label for="">Flight ID</label>
+            <input [(ngModel)]="flightObj.flightId" type="text" class="form-control" placeholder="Enter Flight ID">
+        </div>
+        <div class="col-6">
+            <label for="">Flight No.</label>
+            <input [(ngModel)]="flightObj.flightNumber" type="text" class="form-control" placeholder="Enter Flight No...">
+        </div>
+    </div>
+    <div class="row pt-3">
+        <div class="col-3">
+            <label for="">Schedule date : </label>
+            <input [(ngModel)]="flightObj.travelDate" type="date" class="form-control" placeholder="Enter travel date">
+        </div>
+        <div class="col-3">
+            <label for="">Departure Time</label>
+            <input [(ngModel)]="flightObj.departureTime" type="text" class="form-control" placeholder="Enter departure time">
+        </div>
+        <div class="col-3">
+            <label for="">Arrival Time</label>
+            <input [(ngModel)]="flightObj.arrivalTime" type="text" class="form-control" placeholder="Enter arrival time">
+        </div>
+    </div>
+
+    <div class="row pt-3">
+        <div class="col-4">
+            <label for="">Select Departure Airport</label>
+            <select [(ngModel)]="flightObj.departureAirportId" name="" class="form-select" id="">
+                <option value="">Select Airport</option>
+                @for(port of airportList ; track port.airportId){
+                    <option [value]="port.airportId">{{port.airportName}} , {{port.cityName}}</option>
+                }
+            </select>
+        </div>
+        <div class="col-4">
+            <label for="">Select Arrival Airport</label>
+            <select [(ngModel)]="flightObj.arrivalAirportId" name="" class="form-select" id="">
+                <option value="">Select Airport</option>
+                @for(port of airportList ; track port.airportId){
+                    <option [value]="port.airportId">{{port.airportName}} , {{port.cityName}}</option>
+                }
+
+            </select>
+        </div>
+    </div>
+
+    <div class="row pt-3">
+        <div class="col-3">
+            <label for="">Total Seats</label>
+            <input [(ngModel)]="flightObj.totalSeats" type="text" class="form-control" placeholder="Enter total seats..">
+        </div>
+        <div class="col-3">
+            <label for="">Total Price</label>
+            <input [(ngModel)]="flightObj.price" type="text" class="form-control" placeholder="Enter total price">
+        </div>
+    </div>
+
+    <div class="row pt-5">
+        <div class="col-3 text-center">
+            <button class="btn btn-danger">Reset</button>
+        </div>
+        <div class="col-3 text-center">
+            <button class="btn btn-success" (click)="addNewFlight()">Create Flight</button>
+        </div>
+    </div>
+</div>
